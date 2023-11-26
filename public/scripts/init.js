@@ -1,4 +1,4 @@
-const API_URL = "/api/users/";
+const API_URL = '/api/users/';
 
 async function requestCRUD(method, data) {
     let result;

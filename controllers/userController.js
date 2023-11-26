@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel");
+const userModel = require('../models/userModel');
 
 const getUsers = (req, res) => {
   res.json(userModel.getUsers());
@@ -9,7 +9,7 @@ const getUserById = (req, res) => {
   if (user) {
     res.status(200).json(user);
   } else {
-    res.status(404).json({ message: "Usuario no encontrado" });
+    res.status(404).json({ message: 'Usuario no encontrado' });
   }
 };
 
@@ -18,16 +18,16 @@ const createUser = (req, res) => {
   if (createdUser) {
     res.status(200).json(createdUser);
   } else {
-    res.status(500).json({ message: "Ha ocurrido un error" });
+    res.status(500).json({ message: 'Ha ocurrido un error' });
   }
 };
 
 const updateUser = (req, res) => {
   const updatedUser = userModel.updateUser(req.params.id, req.body);
   if (updatedUser) {
-    res.status(404).json(updatedUser);
+    res.status(200).json(updatedUser);
   } else {
-    res.status(404).json({ message: "Usuario no encontrado" });
+    res.status(404).json({ message: 'Usuario no encontrado' });
   }
 };
 
@@ -36,7 +36,7 @@ const deleteUser = (req, res) => {
   if (deletedUser) {
     res.status(200).json(deletedUser);
   } else {
-    res.status(404).json({ message: "Usuario no encontrado" });
+    res.status(404).json({ message: 'Usuario no encontrado' });
   }
 };
 

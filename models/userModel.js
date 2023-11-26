@@ -5,12 +5,12 @@ Por simplicidad, se opta por trabajar en un archivo JSON usando el módulo FileS
 pero se podría utilizar MariaDB
 */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const filePath = path.join(__dirname, "../json/users.json");
+const filePath = path.join(__dirname, '../json/users.json');
 
-const data = fs.readFileSync(filePath, "utf-8");
+const data = fs.readFileSync(filePath, 'utf-8');
 const users = JSON.parse(data);
 
 const getNextId = () => {
@@ -35,7 +35,7 @@ const updateUser = (id, updatedUser) => {
   if (index !== -1) {
     users[index] = { ...users[index], ...updatedUser };
 
-    fs.writeFileSync(filePath, JSON.stringify(users), "utf-8");
+    fs.writeFileSync(filePath, JSON.stringify(users), 'utf-8');
     return users[index];
   }
 
@@ -45,7 +45,7 @@ const updateUser = (id, updatedUser) => {
 const createUser = (newUser) => {
   newUser.id = getNextId();
   users.push(newUser);
-  fs.writeFileSync(filePath, JSON.stringify(users), "utf-8");
+  fs.writeFileSync(filePath, JSON.stringify(users), 'utf-8');
   return newUser;
 };
 
